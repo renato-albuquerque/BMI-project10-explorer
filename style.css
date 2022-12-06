@@ -101,7 +101,7 @@ form input::placeholder {
     color: var(--tt-placeholder);
 }
 
-button {
+form button {
     margin-top: 1.6rem;
     padding: 1.6rem;
     width: 100%;
@@ -120,12 +120,77 @@ button {
    /*  transition: background .3s; */
 }
 
-button:hover {
+form button:hover {
     background: var(--bg-button-hover);
 }
 
+/* MODAL / POPUP */
 
+.modal-wrapper.open {
+    visibility: visible;
+    opacity: 1;
+}
 
+.modal-wrapper {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    
+    /* top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; */
+    inset: 0; /* Referente aos 4 comandos acima. */
 
+    display: grid;
+    place-content: center;
 
+    /* Para desaparecer com a caixa MODAL/POPUP: */
+    visibility: hidden;
+    opacity: 0;
+}
+
+.modal {
+    position: relative;
+}
+
+.modal button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    cursor: pointer;
+
+    transition: transform .3s;
+}
+
+.modal button:hover {
+    transform: scale(1.2);
+}
+
+/* ALERT ERROR: */
+
+.alert-error {
+    position: absolute;
+    background: var(--bg-error);
+    color: var(--tt-error);
+    font-weight: bold;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: .8rem 0;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transform: translateY(-30px);
+    transition: transform .5s;    
+}
+
+.alert-error.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
 
