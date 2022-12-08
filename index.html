@@ -7,7 +7,7 @@
     <title>BMI Calculator</title>
     
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- Quando inserir esta linha de código (JS) no HEAD, é necessário usar o atributo defer. Entendimento: Programa vai ler todas as demais linhas do HTML, para depois ler esta linha (script.js). Utilizando esta linha de código no BODY, não é necessário usar o atributo defer. -->
+    <script src="js/script.js" defer type="module"></script> <!-- Quando inserir esta linha de código (JS) no HEAD, é necessário usar o atributo defer. Entendimento: Programa vai ler todas as demais linhas do HTML, para depois ler esta linha (script.js). Utilizando esta linha de código no BODY, não é necessário usar o atributo defer. -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,17 +41,20 @@
         </main>
     </div>
 
-    <div class="modal-wrapper"> <!-- Open: To be used with JS. -->
-        
+    <div class="modal-wrapper"> <!-- Open: To be used with JS. (POPUP screen) -->
         <div class="modal card">
-            <h2 class="title">Your BMI is 28</h2>
-            <button class="close"><img src="images/close.svg" alt="Image to close the popup."></button>
+            <h2 class="title">
+                <span>Your BMI is 28</span>
+            </h2>
+            <button class="close">
+                <img src="images/close.svg" alt="Image to close the popup screen.">
+            </button>
         </div>
-
     </div>
 
-    <div class="alert-error open"> <!-- Open: To be used with JS. -->
+    <div class="alert-error open"> <!-- Open: To be used with JS. (ERROR screen) -->
         Enter numbers only.
     </div>
+
 </body>
 </html>
