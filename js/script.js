@@ -1,4 +1,6 @@
 import {Modal} from "./modal.js"
+import {AlertError} from "./alert-error.js"
+import {calculateBMI, notANumber} from "./utils.js"
 
 // Variables
 const form = document.querySelector("form")
@@ -36,13 +38,26 @@ form.onsubmit = function(event) {
     const weight = inputWeight.value
     const height = inputHeight.value
 
-    const result = BMI(weight, height)    
+    const WeightOrHeihtIsNotANumber = notANumber(weight) || notANumber(height)
+
+    if(WeightOrHeihtIsNotANumber) {
+        AlertError.open()
+        return;
+    }
+
+    AlertError.close()
+
+    const result = calculateBMI(weight, height)    
+    displayResultMessage(result)
+} 
+
+function displayResultMessage(result) {
     const message = `Your BMI is ${result}`
     
     Modal.message.innerText = message
     /* modalWrapper.classList.add("open") */
     Modal.open()
-} 
+}
 
 // Modal.buttonClose.onclick = () => { //Arrow function.
     /* modalWrapper.classList.remove("open") */
@@ -53,7 +68,3 @@ form.onsubmit = function(event) {
 modalBtnClose.onclick = function() {
     modalWrapper.classList.remove("open")
 } */
-
-function BMI(weight, height) {
-    return (weight / ((height/100) ** 2)).toFixed(2)
-}

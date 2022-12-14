@@ -15,3 +15,11 @@ Modal.buttonClose.onclick = () => { //Arrow function.
     /* modalWrapper.classList.remove("open") */
     Modal.close()
 }
+
+window.addEventListener("keydown", handleKeydown) // To press the "ESC" button and close the POPUP screen.
+
+function handleKeydown(event) {
+    if(event.key === "Escape") {
+        Modal.close() 
+    }
+}
