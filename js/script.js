@@ -68,3 +68,10 @@ function displayResultMessage(result) {
 modalBtnClose.onclick = function() {
     modalWrapper.classList.remove("open")
 } */
+
+// CHALLENGE:
+// Fechar a janela de erro ao digitar no campo.
+// Evento é de nome input.
+
+inputWeight.oninput = () => AlertError.close()
+inputHeight.oninput = () => AlertError.close()
